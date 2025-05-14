@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cifbqq4cgrxr0"]
+
+[ext_resource type="Script" path="res://Levels/scripts/game_ui.gd" id="1_c1dwk"]
+[ext_resource type="Texture2D" uid="uid://bt5pba2f5put5" path="res://Levels/sprites/66e099f4-629c-4bbb-95fd-279f6216a8cd_removalai_preview.png" id="2_bymuy"]
+[ext_resource type="Texture2D" uid="uid://cm7fe13fbdc3l" path="res://Levels/sprites/undefined - Imgur.png" id="3_nam7m"]
+[ext_resource type="Texture2D" uid="uid://bhau0l42wd5sb" path="res://Levels/sprites/gun_ui-Picsart-AiImageEnhancer-removebg-preview.png" id="4_gw5c0"]
+
+[sub_resource type="Animation" id="Animation_gpceb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rn7ub"]
+resource_name = "idel"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tej21"]
+_data = {
+"RESET": SubResource("Animation_gpceb"),
+"idel": SubResource("Animation_rn7ub")
+}
+
+[node name="Game_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_c1dwk")
+
+[node name="crosshair" type="Sprite2D" parent="."]
+position = Vector2(581, 342)
+scale = Vector2(0.300003, 0.300003)
+texture = ExtResource("2_bymuy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="crosshair"]
+libraries = {
+"": SubResource("AnimationLibrary_tej21")
+}
+
+[node name="overhaed" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, 4)
+scale = Vector2(0.29974, 0.299074)
+texture = ExtResource("3_nam7m")
+centered = false
+
+[node name="gun_ui" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.635294)
+position = Vector2(975, 110)
+scale = Vector2(0.253137, 0.253137)
+texture = ExtResource("4_gw5c0")
+centered = false

@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c2en1nsg8l2db"
+path.s3tc="res://.godot/imported/Zombie Idle(1)_0.png-9388adc6d1ab80dbca591713efb72ee5.s3tc.ctex"
+path.etc2="res://.godot/imported/Zombie Idle(1)_0.png-9388adc6d1ab80dbca591713efb72ee5.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "bb0c53b4fbe3eaad55032583437391e3"
+}
+
+[deps]
+
+source_file="res://Assets/models/bio_virus/Zombie Idle(1)_0.png"
+dest_files=["res://.godot/imported/Zombie Idle(1)_0.png-9388adc6d1ab80dbca591713efb72ee5.s3tc.ctex", "res://.godot/imported/Zombie Idle(1)_0.png-9388adc6d1ab80dbca591713efb72ee5.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

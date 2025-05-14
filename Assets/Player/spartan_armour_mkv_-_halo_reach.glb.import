@@ -1,0 +1,46 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b455hrjfxurfb"
+path="res://.godot/imported/spartan_armour_mkv_-_halo_reach.glb-6b908f752ea5cb289754e4591495fece.scn"
+
+[deps]
+
+source_file="res://Assets/Player/spartan_armour_mkv_-_halo_reach.glb"
+dest_files=["res://.godot/imported/spartan_armour_mkv_-_halo_reach.glb-6b908f752ea5cb289754e4591495fece.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Sketchfab_model/4757fffebe2a4d47b38143266af5f1a9_fbx/Object_2/RootNode/group/Object_7/Skeleton3D": {
+"rest_pose/external_animation_library": null,
+"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
+,"bonemap":null,"bone_map/Root":&"_rootJoint","bone_map/Hips":&"mixamorig_Hips_01","bone_map/Spine":&"mixamorig_Spine_02","bone_map/Chest":&"mixamorig_Spine1_03","bone_map/UpperChest":&"mixamorig_Spine2_04","bone_map/Neck":&"mixamorig_Neck_05","bone_map/Head":&"mixamorig_Head_06","bone_map/LeftEye":&"","bone_map/RightEye":&"","bone_map/Jaw":&"","bone_map/LeftShoulder":&"mixamorig_LeftShoulder_08","bone_map/LeftUpperArm":&"mixamorig_LeftArm_09","bone_map/LeftLowerArm":&"mixamorig_LeftForeArm_010","bone_map/LeftHand":&"mixamorig_LeftHand_011","bone_map/LeftThumbMetacarpal":&"mixamorig_LeftHandThumb1_012","bone_map/LeftThumbProximal":&"mixamorig_LeftHandThumb2_013","bone_map/LeftThumbDistal":&"mixamorig_LeftHandThumb3_014","bone_map/LeftIndexProximal":&"mixamorig_LeftHandIndex1_016","bone_map/LeftIndexIntermediate":&"mixamorig_LeftHandIndex2_017","bone_map/LeftIndexDistal":&"mixamorig_LeftHandIndex3_018","bone_map/LeftMiddleProximal":&"mixamorig_LeftHandMiddle1_020","bone_map/LeftMiddleIntermediate":&"mixamorig_LeftHandMiddle2_021","bone_map/LeftMiddleDistal":&"mixamorig_LeftHandMiddle3_022","bone_map/LeftRingProximal":&"mixamorig_LeftHandRing1_024","bone_map/LeftRingIntermediate":&"mixamorig_LeftHandRing2_025","bone_map/LeftRingDistal":&"mixamorig_LeftHandRing3_026","bone_map/LeftLittleProximal":&"mixamorig_LeftHandPinky1_028","bone_map/LeftLittleIntermediate":&"mixamorig_LeftHandPinky2_029","bone_map/LeftLittleDistal":&"mixamorig_LeftHandPinky3_030","bone_map/RightShoulder":&"mixamorig_RightShoulder_032","bone_map/RightUpperArm":&"mixamorig_RightArm_033","bone_map/RightLowerArm":&"mixamorig_RightForeArm_034","bone_map/RightHand":&"mixamorig_RightHand_035","bone_map/RightThumbMetacarpal":&"mixamorig_RightHandThumb1_036","bone_map/RightThumbProximal":&"mixamorig_RightHandThumb2_037","bone_map/RightThumbDistal":&"mixamorig_RightHandThumb3_038","bone_map/RightIndexProximal":&"mixamorig_RightHandIndex1_040","bone_map/RightIndexIntermediate":&"mixamorig_RightHandIndex2_041","bone_map/RightIndexDistal":&"mixamorig_RightHandIndex3_042","bone_map/RightMiddleProximal":&"mixamorig_RightHandMiddle1_044","bone_map/RightMiddleIntermediate":&"mixamorig_RightHandMiddle2_045","bone_map/RightMiddleDistal":&"mixamorig_RightHandMiddle3_046","bone_map/RightRingProximal":&"mixamorig_RightHandRing1_048","bone_map/RightRingIntermediate":&"mixamorig_RightHandRing2_049","bone_map/RightRingDistal":&"mixamorig_RightHandRing3_050","bone_map/RightLittleProximal":&"mixamorig_RightHandPinky1_052","bone_map/RightLittleIntermediate":&"mixamorig_RightHandPinky2_053","bone_map/RightLittleDistal":&"mixamorig_RightHandPinky3_054","bone_map/LeftUpperLeg":&"mixamorig_LeftUpLeg_055","bone_map/LeftLowerLeg":&"mixamorig_LeftLeg_056","bone_map/LeftFoot":&"mixamorig_LeftFoot_057","bone_map/LeftToes":&"mixamorig_LeftToeBase_058","bone_map/RightUpperLeg":&"mixamorig_RightUpLeg_060","bone_map/RightLowerLeg":&"mixamorig_RightLeg_061","bone_map/RightFoot":&"mixamorig_RightFoot_062","bone_map/RightToes":&"mixamorig_RightToeBase_063","script":null)
+,
+"retarget/bone_renamer/unique_node/skeleton_name": "Skeleton"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
