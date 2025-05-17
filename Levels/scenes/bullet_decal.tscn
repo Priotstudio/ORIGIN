@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://magfsyrp2kj0"]
+[gd_scene load_steps=2 format=3 uid="uid://b2wonj3oc41a6"]
 
-[ext_resource type="Texture2D" uid="uid://bn6vh0qnrccqa" path="res://Levels/sprites/bullet_hole.png" id="1_qs5oe"]
+[ext_resource type="Texture2D" uid="uid://bn6vh0qnrccqa" path="res://Levels/sprites/bullet_hole.png" id="1_u4xqn"]
 
 [node name="BulletDecal" type="Sprite3D"]
-texture = ExtResource("1_qs5oe")
+texture = ExtResource("1_u4xqn")

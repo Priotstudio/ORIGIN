@@ -3,6 +3,9 @@ class_name state_walk extends State
 @export var SPEED : float = 20.0
 const JUMP_VELOCITY : float = 4.5
 
+const BOB_FRQ = 2.0
+const BOb_AMP = 0.08
+var t_bob = 0.0
 
 #@onready var running: State = $"../running"
 @onready var idle: State = $"../idle"
@@ -10,6 +13,8 @@ const JUMP_VELOCITY : float = 4.5
 @onready var shoot: State = $"../shoot"
 @onready var jump_and_shoot: state_jump_and_shoot = $"../jump and shoot"
 @onready var rifile: Node3D = $"../../camera/rifile"
+@onready var camera: FPSCameraShake = $"../../camera/Marin/Camera3D"
+
 
 
 @onready var gun_animation: AnimationPlayer = $"../../camera/rifile/AnimationPlayer"
@@ -48,6 +53,9 @@ func Process(_delta : float) -> State:
 	
 	player.velocity.x = player.direction.x * SPEED
 	player.velocity.z = player.direction.z * SPEED
+	
+	t_bob += _delta * player.velocity.length() * float(player.is_on_floor())
+	#camera.transform.origin = player._headbob (t_bob)
 	
 	
 	

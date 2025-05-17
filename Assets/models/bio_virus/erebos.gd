@@ -2,8 +2,13 @@ class_name Enemy extends CharacterBody3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: EnemyStateMachine = $Enemy_state_machine
+@onready var hit_box: Hit_box = $HitBox
 
 @export var hp: int = 100
+
+signal enemy_damaged(hurt_box : Hurt_box)
+signal enemy_destroyed(hurt_box : Hurt_box)
+
 
 # 3D cardinal directions (forward, right, back, left in XZ plane)
 const DIR_4: Array[Vector3] = [
@@ -25,6 +30,7 @@ func _ready() -> void:
 	player = GlobalPlayerManager.player
 	if not player:
 		push_warning("Player not found in GlobalPlayerManager!")
+	hit_box.Damaged.connect(TakeDamage)
 
 func _physics_process(delta: float) -> void:
 	# Apply velocity and move with collision detection
@@ -69,3 +75,15 @@ func update_animation(anim_name: String) -> void:
 	# Play animation if it exists and isn't already playing
 	if animation_player.has_animation(anim_name) and animation_player.current_animation != anim_name:
 		animation_player.play(anim_name, 0.5)  # Blend over 0.3 seconds
+	if anim_name == "stun":
+		animation_player.speed_scale = 3
+	if anim_name != 'stun':
+		animation_player.speed_scale = 1
+		
+func TakeDamage (hurt_box : Hurt_box ) -> void:
+	hp -= hurt_box.damage
+	if hp > 0:
+		enemy_damaged.emit(hurt_box)
+	else:
+		enemy_destroyed.emit(hurt_box)
+	pass

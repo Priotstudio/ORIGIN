@@ -3,6 +3,10 @@ class_name Player extends CharacterBody3D
 
 const SPEED : float = 250.0
 const JUMP_VELOCITY = 4.5
+const BOB_FRQ = 2.0
+const BOb_AMP = 0.08
+
+var t_bob = 0.0
 
 #@onready var camera_3d: Camera3D = $rifile/Camera3D
 
@@ -72,3 +76,8 @@ func _process(_delta: float) -> void:
 
 func update_animation(State : String) -> void:
 	animation.play(State)
+	
+func _headbob(t_bob):
+	var pos = Vector3.ZERO
+	pos.y = sin(t_bob * BOB_FRQ) * BOb_AMP
+	return pos
