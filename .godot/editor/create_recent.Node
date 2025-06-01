@@ -1,0 +1,15 @@
+PathFollow3D
+AudioStreamPlayer
+Node3D
+AudioStreamPlayer3D
+CollisionShape3D
+Area3D
+Label
+AnimationPlayer
+ProgressBar
+Sprite2D
+Hit_box
+CharacterBody3D
+MeshInstance3D
+StaticBody3D
+RigidBody3D

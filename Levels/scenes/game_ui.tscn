@@ -1,9 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cifbqq4cgrxr0"]
+[gd_scene load_steps=29 format=3 uid="uid://cifbqq4cgrxr0"]
 
 [ext_resource type="Script" path="res://Levels/scripts/game_ui.gd" id="1_c1dwk"]
+[ext_resource type="AudioStream" uid="uid://cxbh7wpl46fsi" path="res://Assets/Audio/dialog_on.mp3" id="2_3kaui"]
+[ext_resource type="AudioStream" uid="uid://dh0vf5gpntdqj" path="res://Assets/Audio/beep-sound-8333.mp3" id="2_bp11s"]
 [ext_resource type="Texture2D" uid="uid://bt5pba2f5put5" path="res://Levels/sprites/66e099f4-629c-4bbb-95fd-279f6216a8cd_removalai_preview.png" id="2_bymuy"]
 [ext_resource type="Texture2D" uid="uid://cm7fe13fbdc3l" path="res://Levels/sprites/undefined - Imgur.png" id="3_nam7m"]
+[ext_resource type="AudioStream" uid="uid://frt3e2gpr8xu" path="res://Assets/Audio/deactivate.mp3" id="4_cpy55"]
 [ext_resource type="Texture2D" uid="uid://bhau0l42wd5sb" path="res://Levels/sprites/gun_ui-Picsart-AiImageEnhancer-removebg-preview.png" id="4_gw5c0"]
+[ext_resource type="Texture2D" uid="uid://s6t5wpaovgjm" path="res://Levels/sprites/Circle01.png" id="5_fm4h1"]
+[ext_resource type="FontFile" uid="uid://uompg7bnfu44" path="res://Levels/sprites/digital-7.ttf" id="6_b1dsd"]
+[ext_resource type="Texture2D" uid="uid://taxw3j5u8hjt" path="res://Levels/sprites/Icon33.png" id="7_43nfa"]
+[ext_resource type="Texture2D" uid="uid://dermflpwwii3y" path="res://Levels/sprites/Panel02.png" id="8_6fybp"]
+[ext_resource type="Texture2D" uid="uid://drv1cbwyr2qth" path="res://Levels/sprites/dia.png" id="9_fpt4o"]
+[ext_resource type="Texture2D" uid="uid://xfuuohpiwuvv" path="res://Levels/sprites/images89-removebg-preview.png" id="10_04ily"]
+[ext_resource type="FontFile" uid="uid://ca627ib0fgyw3" path="res://Levels/sprites/Conthrax-SemiBold.otf" id="12_88ce7"]
 
 [sub_resource type="Animation" id="Animation_gpceb"]
 length = 0.001
@@ -43,6 +53,162 @@ _data = {
 "idel": SubResource("Animation_rn7ub")
 }
 
+[sub_resource type="Animation" id="Animation_p1e6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_su200"]
+resource_name = "hp_up"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6r5w"]
+_data = {
+"RESET": SubResource("Animation_p1e6l"),
+"hp_up": SubResource("Animation_su200")
+}
+
+[sub_resource type="Animation" id="Animation_dqcne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vi2kw"]
+resource_name = "indicating"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ifi0b"]
+_data = {
+"RESET": SubResource("Animation_dqcne"),
+"indicating": SubResource("Animation_vi2kw")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_ycmgg"]
+base_font = ExtResource("12_88ce7")
+
+[sub_resource type="Animation" id="Animation_pjolw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_peq21"]
+resource_name = "activate"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.353, 0.353)]
+}
+
+[sub_resource type="Animation" id="Animation_mq3ym"]
+resource_name = "deactivate"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.353, 0.353), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5jf6"]
+_data = {
+"RESET": SubResource("Animation_pjolw"),
+"activate": SubResource("Animation_peq21"),
+"deactivate": SubResource("Animation_mq3ym")
+}
+
 [node name="Game_ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -52,6 +218,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 script = ExtResource("1_c1dwk")
+sound_mp3 = ExtResource("2_3kaui")
+sound1_mp3 = ExtResource("2_bp11s")
+sound2_mp3 = ExtResource("4_cpy55")
+dialogue_1 = "Corporal Marine 096, this is Dr Selena, I have been trying to reach 
+you, your assistance is greatly required. I need you to perform a series of tasks for me, 
+these tasks are highly classified operations and I'll bid you not to share with your fellow comrades."
+dialogue_2 = "I need you to secure...let's call it an item located at the lowest levels of the facility and it so happens
+to be where the mutations and infections began, this item must be secured at all cost, the future of our
+species depends on it."
+dialogue_3 = "But before we can proceed you'll need to secure this sector and eliminate any infected lifeform onboard.
+Great caution must be taken, good luck corporal."
+dialogue_4 = "Good work corporal, you have successfully eliminated all infected personnel onboard and found your way to the east wing elevator.
+"
+dialogue_5 = "Currently communications are down but i managed to send for some troops that remains across the facility to secure this point to slow down
+any futher contamination. Make your way into the elevator and we will proceed with your next objective."
 
 [node name="crosshair" type="Sprite2D" parent="."]
 position = Vector2(581, 342)
@@ -71,7 +252,92 @@ centered = false
 
 [node name="gun_ui" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.635294)
-position = Vector2(975, 110)
+position = Vector2(1019, 62)
 scale = Vector2(0.253137, 0.253137)
 texture = ExtResource("4_gw5c0")
 centered = false
+
+[node name="HP" type="Sprite2D" parent="."]
+modulate = Color(0, 0.654902, 1, 0.658824)
+position = Vector2(176, 540)
+texture = ExtResource("5_fm4h1")
+
+[node name="ProgressBar" type="ProgressBar" parent="HP"]
+offset_left = -1.0
+offset_top = -15.0
+offset_right = 3.0
+offset_bottom = 12.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b1dsd")
+theme_override_font_sizes/font_size = 30
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HP"]
+libraries = {
+"": SubResource("AnimationLibrary_o6r5w")
+}
+
+[node name="Indicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(578, 176)
+scale = Vector2(0.801376, 0.801376)
+texture = ExtResource("7_43nfa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Indicator"]
+libraries = {
+"": SubResource("AnimationLibrary_ifi0b")
+}
+
+[node name="Objective" type="Sprite2D" parent="."]
+modulate = Color(0, 0.580683, 0.889702, 1)
+position = Vector2(577, 72)
+scale = Vector2(0.602356, 0.602356)
+texture = ExtResource("8_6fybp")
+
+[node name="Objecive_label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 460.0
+offset_top = 68.0
+offset_right = 676.0
+offset_bottom = 80.0
+scale = Vector2(1.12394, 1.12394)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_ycmgg")
+theme_override_font_sizes/font_size = 8
+text = "OBJECTIVE: Eliminate All Infected Lifeform"
+
+[node name="dialouge" type="Sprite2D" parent="."]
+position = Vector2(204, 315)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("9_fpt4o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dialouge"]
+libraries = {
+"": SubResource("AnimationLibrary_b5jf6")
+}
+
+[node name="icon" type="Sprite2D" parent="dialouge"]
+position = Vector2(-342.776, -167.139)
+texture = ExtResource("10_04ily")
+
+[node name="Label" type="Label" parent="dialouge"]
+offset_left = -473.501
+offset_top = -45.1643
+offset_right = 481.499
+offset_bottom = 119.836
+theme_override_font_sizes/font_size = 28
+text = "Currently communications are down but i managed to send for some troops that remains across the facility to secure this point to slow down
+any futher contamination. Make your way into the elevator and we will proceed with your next objective."
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="dialouge"]
+offset_left = 220.824
+offset_top = 138.498
+offset_right = 418.824
+offset_bottom = 200.498
+theme_override_font_sizes/font_size = 32
+text = "DR. SELENA"
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 3

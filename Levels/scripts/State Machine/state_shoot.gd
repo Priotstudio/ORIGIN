@@ -37,7 +37,7 @@ func Enter() -> void:
 	bullet_instance.position = ray_cast_gun.global_position
 
 	# 🔀 Add random spread for realism
-	var random_spread : float = 0.2
+	var random_spread : float = 0.1
 	var random_z = randf() * random_spread - (random_spread / 2)
 	bullet_instance.transform.basis = ray_cast_gun.global_transform.basis
 	bullet_instance.transform.basis.z += Vector3(0, 0, random_z)

@@ -74,10 +74,10 @@ func _process(_delta: float) -> void:
 	
 	
 
-func update_animation(State : String) -> void:
-	animation.play(State)
+func update_animation(state : String) -> void:
+	animation.play(state)
 	
-func _headbob(t_bob):
+func _headbob(_t_bob):
 	var pos = Vector3.ZERO
-	pos.y = sin(t_bob * BOB_FRQ) * BOb_AMP
+	pos.y = sin(_t_bob * BOB_FRQ) * BOb_AMP
 	return pos

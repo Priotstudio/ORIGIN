@@ -9,7 +9,7 @@ var player_spawn : bool = false
 func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
-	player_spawn == true
+	#player_spawn == true
 
 
 func add_player_instance ( )-> void:

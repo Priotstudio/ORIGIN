@@ -1,7 +1,7 @@
 class_name EnemyState_Wander extends Enemy_state
 
 @export var anim_name: String = "walk"
-@export var walk_speed: float = 1.0
+@export var walk_speed: float = 2.0
 
 @export_category("AI")
 @export var state_animation_duration: float = 1.0  # Base duration per cycle
@@ -15,9 +15,21 @@ class_name EnemyState_Wander extends Enemy_state
 @export var look_around_duration_max: float = 10.0  # Max look_around time
 @export var direction_change_interval_min: float = 2.0  # Min time before direction change
 @export var direction_change_interval_max: float = 5.0  # Max time before direction change
-@export var rotation_lerp_speed: float = 5.0  # Speed of rotation interpolation (higher = faster)
+@export var rotation_lerp_speed: float = 40.0  # Speed of rotation interpolation (higher = faster)
 @export var collision_cooldown: float = 1.0  # Cooldown after hitting a wall
 @export var next_state: Enemy_state
+
+
+@export_category("Sounds") ## Load expected sounds in inspector
+@export var sound_mp3 : Resource
+@export var sound1_mp3 : Resource
+@export var sound2_mp3 : Resource
+@export var sound_wav : Resource
+@export var sound1_wav : Resource
+@export var sound2_wav : Resource
+
+@onready var audio_stream_player: AudioStreamPlayer3D = $"../../AudioStreamPlayer3D"
+
 
 var _timer: float = 0.0
 var _direction: Vector3
@@ -48,6 +60,13 @@ func enter() -> void:
 	_direction_change_timer = randf_range(direction_change_interval_min, direction_change_interval_max)
 	_collision_cooldown_timer = 0.0
 	_use_look_around = false
+	
+	audio_stream_player.stream = sound_mp3
+	audio_stream_player.pitch_scale = 1
+	audio_stream_player.volume_db = 0
+	audio_stream_player.unit_size = 20
+	audio_stream_player.play()
+
 
 func physics(delta: float) -> Enemy_state:
 	if _is_paused:
@@ -84,11 +103,11 @@ func physics(delta: float) -> Enemy_state:
 		return null
 	
 	# Periodic direction change
-	if _direction_change_timer <= 0.0:
-		var rand_index = randi_range(0, Enemy.DIR_4.size() - 1)
-		_direction = Enemy.DIR_4[rand_index]
-		_direction_change_timer = randf_range(direction_change_interval_min, direction_change_interval_max)
-	
+	#if _direction_change_timer <= 0.0:
+		#var rand_index = randi_range(0, Enemy.DIR_4.size() - 1)
+		#_direction = Enemy.DIR_4[rand_index]
+		#_direction_change_timer = randf_range(direction_change_interval_min, direction_change_interval_max)
+	#
 	# Obstacle avoidance via collision detection
 	if _collision_cooldown_timer <= 0.0 and enemy.get_slide_collision_count() > 0:
 		# Hit a wall, pick a new direction
@@ -115,3 +134,4 @@ func exit() -> void:
 	enemy.velocity = Vector3.ZERO
 	if enemy.animation_player.current_animation != "idle":
 		enemy.update_animation("idle")
+	audio_stream_player.stop()

@@ -58,7 +58,7 @@ func Process(_delta : float) -> State:
 			instance.position = ray_cast_gun.global_position
 
 			# Add randomness to the bullet trajectory
-			var random_spread : float = 0.2  # Adjust this value to control the spread
+			var random_spread : float = 0.1 # Adjust this value to control the spread
 			var random_z = randf() * random_spread - (random_spread / 2)
 
 			# Apply the randomness to the basis (direction of the bullet)

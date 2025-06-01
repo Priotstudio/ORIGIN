@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2wonj3oc41a6"]
+[gd_scene load_steps=3 format=3 uid="uid://b2wonj3oc41a6"]
 
-[ext_resource type="Texture2D" uid="uid://bn6vh0qnrccqa" path="res://Levels/sprites/bullet_hole.png" id="1_u4xqn"]
+[sub_resource type="QuadMesh" id="QuadMesh_5v1fe"]
 
-[node name="BulletDecal" type="Sprite3D"]
-texture = ExtResource("1_u4xqn")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vule8"]
+albedo_color = Color(0.260506, 0.260506, 0.260506, 1)
+
+[node name="BulletDecal" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.419675)
+mesh = SubResource("QuadMesh_5v1fe")
+surface_material_override/0 = SubResource("StandardMaterial3D_vule8")
