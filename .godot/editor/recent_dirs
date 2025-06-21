@@ -1,10 +1,11 @@
+res://global
+res://Assets/Animation/Player
 res://Levels/scripts/general
 res://Assets/Audio
 res://Assets/models/bio_virus/mutant
 res://Assets/Animation
 res://Levels/scenes
 res://Levels/scripts/State Machine
-res://global
 res://Assets/models/bio_virus
 res://Assets
 C:/Users/Owner/Documents/Godot/origin-06

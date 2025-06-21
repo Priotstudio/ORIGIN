@@ -3373,7 +3373,7 @@ shape = SubResource("CapsuleShape3D_camc2")
 [node name="mutant" type="Node3D" parent="."]
 
 [node name="metarig" type="Node3D" parent="mutant"]
-transform = Transform3D(94.5504, 32.5607, -0.114168, -6.51057, 19.2489, 97.9136, 31.9034, -92.5704, 20.3198, -0.00296421, -0.0699421, -0.253717)
+transform = Transform3D(94.5504, 32.5607, -0.114175, -6.51055, 19.2488, 97.9136, 31.9034, -92.5704, 20.3197, -0.00296421, -0.0699421, -0.253717)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="mutant/metarig"]
 bones/0/name = "hips"

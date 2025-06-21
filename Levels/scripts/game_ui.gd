@@ -9,6 +9,8 @@ extends Control
 @onready var animation_player_hp: AnimationPlayer = $HP/AnimationPlayer
 @onready var objecive_label: Label = $Objecive_label
 @onready var indicator: Sprite2D = $Indicator
+@onready var reload: Label = $Reload
+@onready var reload_animation: AnimationPlayer = $Reload/AnimationPlayer
 
 
 ## Exports
@@ -96,3 +98,11 @@ func end_dialogue () -> void:
 	audio_stream_player.play()
 	print ("Reached here congrats")
 	pass
+	
+	
+func reload_show (animation_name : String) -> void:
+	reload_animation.play(animation_name)
+	#reload.visible = true
+
+func reload_hide () -> void:
+	reload.visible = false

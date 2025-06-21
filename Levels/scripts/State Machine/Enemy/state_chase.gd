@@ -1,7 +1,7 @@
 class_name Enemy_state_Chase extends Enemy_state
 
 @export var anim_name: String = "run"
-@export var chase_speed: float = 7.0
+@export var chase_speed: float = 17.0
 
 @export_category("AI")
 @export var after_chase_state: Enemy_state

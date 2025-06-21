@@ -7,6 +7,16 @@ const BOB_FRQ = 2.0
 const BOb_AMP = 0.08
 
 var t_bob = 0.0
+var bullet_shot: int = 0
+
+# for some reason the ammo count adds 2 times, sof if you want to shoot 5 times you must set 
+# it to 10
+var assualt_ammo : int = 10
+var shotgun_ammo : int = 10
+var chain_gun : int = 10
+
+# for storing main ammo from which gun is in use
+var main_ammo : int
 
 #@onready var camera_3d: Camera3D = $rifile/Camera3D
 
@@ -15,11 +25,17 @@ var t_bob = 0.0
 @onready var state_machine: PlayerStateMAchine = $StateMachine
 @onready var jump: State = $StateMachine/jump
 @onready var animation: AnimationPlayer = $camera/Marin/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $camera/rifile/AnimationPlayer
 
 
 @onready var marin: Node3D = $camera/Marin
+@onready var rifile: Node3D = $camera/rifile
+@onready var shotgun: Node3D = $camera/shotgun
+@onready var chaingun: Node3D = $camera/chaingun
 
+@export var weapon_slot : Array[Node3D]
 
+var current_weapon := 0
 
 var min_range_below : float = -40.5
 var max_range_above : float = 40.5
@@ -32,6 +48,8 @@ var direction : Vector3 = Vector3.ZERO
 func _ready() -> void:
 	state_machine.Initialize(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	main_ammo = assualt_ammo
 	pass
 	
 	
@@ -44,7 +62,7 @@ func _input(event) -> void:
 		
 		# camera upward and downward rotate limit
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(min_range_below), deg_to_rad(max_range_above))
-		
+	
 		# Gamepad right stick input
 	
 	
@@ -70,9 +88,11 @@ func _process(_delta: float) -> void:
 		player.rotate_y(deg_to_rad(-look_x * horizontal * SPEED * get_process_delta_time()))
 		camera.rotate_x(deg_to_rad(-look_y * vartical * SPEED * get_process_delta_time()))
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(min_range_below), deg_to_rad(max_range_above))
-		
 	
 	
+	# to switch weapons
+	if Input.is_action_just_pressed("switch_weapon"):
+		_next_weapon()
 
 func update_animation(state : String) -> void:
 	animation.play(state)
@@ -81,3 +101,16 @@ func _headbob(_t_bob):
 	var pos = Vector3.ZERO
 	pos.y = sin(_t_bob * BOB_FRQ) * BOb_AMP
 	return pos
+
+
+func _next_weapon ():
+	
+	if weapon_slot[current_weapon] == $camera/rifile:
+		print("yes")
+	
+	weapon_slot[current_weapon].visible = false
+	current_weapon = (current_weapon + 1) % weapon_slot.size()
+	weapon_slot[current_weapon].visible = true
+	
+	
+	#print ("switched to ", weapon_slot[current_weapon])

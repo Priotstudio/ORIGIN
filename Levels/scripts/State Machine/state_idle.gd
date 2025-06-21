@@ -9,6 +9,7 @@ var SPEED : float = 3.0
 @onready var shoot: State = $"../shoot"
 @onready var jump_and_shoot: state_jump_and_shoot = $"../jump and shoot"
 
+
 @onready var gun_animation: AnimationPlayer = $"../../camera/rifile/AnimationPlayer"
 @onready var marin_animation: AnimationPlayer = $"../../camera/Marin/AnimationPlayer"
 
