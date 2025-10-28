@@ -1,55 +1,45 @@
-# Mixamo Animation Retargeter for Godot 4.3
+# Blue Ocean Games Game Jam: ORIGIN (DEMO)
+*A First-Person Shooter built with the Godot Engine*
 
-This plugin simplifies the process of importing and retargeting Mixamo animations in Godot 4.x projects.
+---
 
-## Features
+## 📖 Overview
 
-- Adds a "Retarget Mixamo Animation" option to the right-click menu for FBX files in the FileSystem dock.
-- Automatically sets up the correct import settings for Mixamo animations.
-- Supports batch processing of multiple FBX files.
-- Saves retargeted animations as separate .res files that can be added to Animation Libraries.
+**ORIGIN** is a tense, atmospheric **first-person shooter** developed by **Priot Studio** using the **Godot Engine**.  
+You play as a **security guard** in a high-tech planetary research facility during a **catastrophic lockdown**.  
+Something has gone horribly wrong — the staff have mutated into hostile, twisted versions of their former selves.  
 
-## Installation
+With the help of a lone surviving **scientist**, you must fight your way through the facility, uncover what caused the mutation, and contain the ORIGIN project before it too late.
 
-1. Download or clone this repository.
-2. Copy the `addons/mixamo_animation_retargeter` folder into your Godot project's `addons` folder.
-3. Enable the plugin in Project Settings -> Plugins.
+---
 
-## Usage
+## 🎮 Gameplay Features
 
-1. Import your Mixamo FBX file(s) into your Godot project using ufbx.
-2. In the FileSystem dock, right-click on the FBX file(s) you want to retarget.
-3. Select "Retarget Mixamo Animation" from the context menu.
-4. Choose a destination folder for the exported animation(s).
-5. The plugin will automatically update the import settings, retarget the animation(s), and save them as .res files in the specified folder.
-6. Ensure your character model has a Skeleton3D node named "Skeleton" for the exported animations to work correctly. 
-7. Ensure your Character Skeleton is also retargeted using Bone Mapping. This ensures both the animation and the skeleton will share the same bone names.
-8. Add the exported .res files to an AnimationLibrary and you should be able to play the animations in your scene.
+- **Immersive FPS Combat** — Engage in fast-paced gunfights against mutated personnel using an array of security-grade weaponry.
+- **Dynamic Patrol System** — Explore the facility’s corridors, labs, and maintenance tunnels while managing limited resources and ammo.
+- **AI Companion** — Work alongside a **scientist NPC** who provides tactical support, lore, and guidance through voice and terminal interactions.
+- **Lockdown Events** — Experience environmental hazards, automatic lockdowns, and power failures that alter the flow of gameplay.
+- **Story-Driven Exploration** — Discover logs, documents, and security footage that piece together the events leading to the outbreak.
 
-## Requirements
+---
 
-- Godot 4.3
 
-## Configuration
+## 🛠️ Built With
 
-The plugin uses a predefined bone map for Mixamo animations. If you need to customize the bone mapping, you can modify the `mixamo_bone_map.tres` file in the plugin folder.
+- **Engine:** [Godot Engine 4.x](https://godotengine.org/)
+- **Language:** GDScript (with some C# modules for advanced AI logic)
+- **Platform:** Windows / Linux (planned export to consoles)
+- **Version Control:** Git + Git LFS (for large asset management)
 
-## Known Issues
+---
 
-- Untested with older Godot versions.
+## 🚧 Development Status
 
-## Contributing
+| Stage | Description |
+|-------|--------------|
+| 🧩 Prototype | Core FPS movement, AI patrol & combat systems complete |
+| 🔧 Alpha | Environment art & scientist AI integration in progress |
+| 🚀 Beta | Storyline, voice acting & UI polish planned |
+| 🎯 Release | - |
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-GNU GPLv3
-
-## Credits
-
-Developed by Matt Marcin @ RaidTheory
-
-## Disclaimer
-
-This plugin is not affiliated with or endorsed by Mixamo or Adobe. Mixamo and its logo are registered trademarks of Adobe Inc. All rights to Mixamo assets and branding belong to Adobe Inc.
+---
